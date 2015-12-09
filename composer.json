@@ -1,8 +1,8 @@
 {
-    "name": "wzulfikar/slack-slash-command",
+    "name": "willdone/slack-slash-command",
     "autoload": {
         "psr-4": {
-            "Wzulfikar\\SlackSlashCommand\\": "src/"
+            "Willdone\\SlackSlashCommand\\": "src/"
         }
     },
     "require-dev": {

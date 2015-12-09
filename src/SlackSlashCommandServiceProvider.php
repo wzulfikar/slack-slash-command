@@ -1,6 +1,6 @@
 <?php
 
-namespace Wzulfikar\SlackSlashCommand;
+namespace Willdone\SlackSlashCommand;
 
 use Illuminate\Support\ServiceProvider;
 

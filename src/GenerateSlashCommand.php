@@ -1,6 +1,6 @@
 <?php
 
-namespace Wzulfikar\SlackSlashCommand;
+namespace Willdone\SlackSlashCommand;
 
 use Illuminate\Console\Command;
 
@@ -49,7 +49,7 @@ class GenerateSlackSlashCommand extends Command
         $classPath         = app_path($commandsNamespace . '/' . $className . '.php');
 
         // prepare template
-        $template = file_get_contents(app_path('Wzulfikar/SlackSlashCommand/SlackSlashCommandTemplate.php'));
+        $template = file_get_contents(app_path('Willdone/SlackSlashCommand/SlackSlashCommandTemplate.php'));
         $template = str_replace('{$className}', $className, $template);
         $template = str_replace('{$commandName}', $commandName, $template);
         $template = str_replace('{$commandsNamespace}', $commandName, $template);

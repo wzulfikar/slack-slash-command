@@ -1,6 +1,6 @@
 <?php 
 
-namespace Wzulfikar\SlackSlashCommand;
+namespace Willdone\SlackSlashCommand;
 
 use Exception;
 
@@ -10,7 +10,7 @@ class SlackSlashCommand {
 	public $payload;
 
 	private $executableClass;
-	private $slashCommandInterfaceNamespace = 'Wzulfikar\SlackSlashCommand\SlackSlashCommandInterface';
+	private $slashCommandInterfaceNamespace = 'Willdone\SlackSlashCommand\SlackSlashCommandInterface';
 
 	/**
 	 * see: https://api.slack.com/slash-commands
