@@ -1,6 +1,6 @@
 <?php
 
-namespace Wzulfikar\SlackSlashCommand\Console;
+namespace Wzulfikar\SlackSlashCommand;
 
 use Illuminate\Console\Command;
 
