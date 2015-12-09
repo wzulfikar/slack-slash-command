@@ -53,14 +53,4 @@ class SlackSlashCommandServiceProvider extends ServiceProvider
         });
         $this->commands('command.make.slack-slash-command');
     }
-
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
-    public function provides()
-    {
-        
-    }
 }
