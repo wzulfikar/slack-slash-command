@@ -1,0 +1,11 @@
+{
+    "name": "wzulfikar/slack-slash-command",
+    "autoload": {
+        "psr-4": {
+            "Wzulfikar\\SlackSlashCommand\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~2.0"
+    }
+}
