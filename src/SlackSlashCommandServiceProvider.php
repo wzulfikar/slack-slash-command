@@ -27,5 +27,40 @@ class SlackSlashCommandServiceProvider extends ServiceProvider
     public function register()
     {
         include __DIR__.'/routes.php';
+        
+        $this->registerCommands();
+    }
+
+    /**
+     * Register the commands.
+     *
+     * @return void
+     */
+    protected function registerCommands()
+    {
+        $this->registerGeneratorCommand();
+    }
+
+    /**
+     * Register the 'make:slack-slash-command' command.
+     *
+     * @return void
+     */
+    protected function registerGeneratorCommand()
+    {
+        $this->commands('command.generator');
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return [
+
+            'command.make.generator'
+        ];
     }
 }

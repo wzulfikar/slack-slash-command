@@ -1,10 +1,10 @@
 <?php
 
-namespace Wzulfikar\SlackSlashCommand;
+namespace Wzulfikar\SlackSlashCommand\Console;
 
 use Illuminate\Console\Command;
 
-class SlackSlashCommandGenerator extends Command
+class GeneratorCommand extends Command
 {
     /**
      * The name and signature of the console command.
