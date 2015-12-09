@@ -1,6 +1,6 @@
 <?php 
 
-namespace Willdone\SlackSlashCommand;
+namespace Wzulfikar\SlackSlashCommand;
 
 use Exception;
 
@@ -10,7 +10,7 @@ class SlackSlashCommand {
 	public $payload;
 
 	private $executableClass;
-	private $slashCommandInterfaceNamespace = 'Willdone\SlackSlashCommand\SlackSlashCommandInterface';
+	private $slashCommandInterfaceNamespace = 'Wzulfikar\SlackSlashCommand\SlackSlashCommandInterface';
 
 	/**
 	 * see: https://api.slack.com/slash-commands
@@ -20,7 +20,7 @@ class SlackSlashCommand {
 	public function __construct(array $payload, $executableClass = '')
 	{
 		// fetch config file
-		$this->config  = require (__DIR__.'/slack_slash_command.php');
+		$this->config  = (object) require (__DIR__.'/config/slack_slash_command.php');
 
 		$this->payload = (object) $payload;
 		$this->executableClass = $executableClass ?: $this->getExecutableClass();
@@ -59,10 +59,11 @@ class SlackSlashCommand {
 	 * @return string
 	 */
 	private function getExecutableClass(){
-		$className = $this->executableClass ?: $this->config['commandsNamespace'] . '\Slash' . ucfirst($this->getName());
+		$classPath = str_replace('/', '\\', $this->config->commands_dir) . '\Slash' . ucfirst($this->getName());
+		$className = $this->executableClass ?: $classPath; 
 
 		if(!class_exists($className))
-			throw new Exception("Class {$className} does not exist", 1);
+			die("Oops! Cannot find `{$className}` :(");
 		
 		return $className;
 	}
@@ -70,7 +71,7 @@ class SlackSlashCommand {
 	/**
 	 * verify that given executable class already impelement SlashCommandInterface
 	 * 
-	 * @param  stdObj $class
+	 * @param  object $class
 	 * @return void
 	 */
 	private function verifyClassInterface($class){

@@ -1,6 +1,6 @@
 <?php 
 
-namespace Willdone\SlackSlashCommand;
+namespace Wzulfikar\SlackSlashCommand;
 
 interface SlackSlashCommandInterface {
 	

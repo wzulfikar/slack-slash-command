@@ -1,6 +1,6 @@
 <?php
 
-namespace Willdone\SlackSlashCommand;
+namespace Wzulfikar\SlackSlashCommand;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -12,8 +12,11 @@ class SlackSlashCommandServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
-        //
+    {   
+        // Publish a config file
+        $this->publishes([
+            __DIR__.'/config/slack_slash_command.php' => config_path('slack_slash_command.php')
+        ]);
     }
 
     /**

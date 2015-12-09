@@ -3,7 +3,7 @@
 namespace {$commandsNamespace};
 
 use Exception;
-use Willdone\SlackSlashCommand\SlackSlashCommandInterface;
+use Wzulfikar\SlackSlashCommand\SlackSlashCommandInterface;
 
 /**
  * This class will handle Slack Slash Command `/{$commandName}`.
