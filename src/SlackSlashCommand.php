@@ -63,7 +63,7 @@ class SlackSlashCommand {
 		$className = $this->executableClass ?: $classPath; 
 
 		if(!class_exists($className))
-			die("Oops! Cannot find `{$className}` :(");
+			die("Oops! Cannot find `{$className}`. Try `php artisan help make:slack-slash-command`");
 		
 		return $className;
 	}
