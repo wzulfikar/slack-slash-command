@@ -4,7 +4,7 @@ namespace Wzulfikar\SlackSlashCommand;
 
 use Illuminate\Console\Command;
 
-class GenerateSlackSlashCommand extends Command
+class SlackSlashCommandGenerator extends Command
 {
     /**
      * The name and signature of the console command.
@@ -20,6 +20,8 @@ class GenerateSlackSlashCommand extends Command
      */
     protected $description = 'Generate class implementation of SlackSlashCommandInterface.';
 
+    public $config;
+
     /**
      * Create a new command instance.
      *
@@ -28,6 +30,7 @@ class GenerateSlackSlashCommand extends Command
     public function __construct()
     {
         parent::__construct();
+        $this->config  = (object) require (__DIR__.'/slack_slash_command.php');
     }
 
     /**
@@ -38,15 +41,18 @@ class GenerateSlackSlashCommand extends Command
     public function handle()
     {
         // prepare class name from given command
-        $command     = $this->argument('className') ?: $this->ask('What is the command name?');
-        $commandName = str_replace('/', '', $command);
-        $className   = sprintf('Slash%s',ucfirst($commandName));
-        $classPath   = app_path('Libraries/SlackIncoming/Commands/' . $className . '.php');
+        $command           = $this->argument('className') ?: $this->ask('What is the command name?');
+        $commandName       = str_replace('/', '', $command);
+        $commandsNamespace = $this->config->commandsNamespace;
+
+        $className         = sprintf('Slash%s',ucfirst($commandName));
+        $classPath         = app_path($commandsNamespace . '/' . $className . '.php');
 
         // prepare template
-        $template = file_get_contents(app_path('Libraries/SlackIncoming/SlackSlashCommandTemplate.php'));
+        $template = file_get_contents(app_path('Wzulfikar/SlackSlashCommand/SlackSlashCommandTemplate.php'));
         $template = str_replace('{$className}', $className, $template);
         $template = str_replace('{$commandName}', $commandName, $template);
+        $template = str_replace('{$commandsNamespace}', $commandName, $template);
 
         // create class definition from template
         file_put_contents($classPath, $template);
