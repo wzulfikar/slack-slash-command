@@ -1,6 +1,8 @@
 <?php 
 
+use Wzulfikar\SlackSlashCommand\SlackSlashCommand; 
+
 Route::post('slack',function(){
-  $slashCommand = new App\Libraries\SlackIncoming\SlackSlashCommand( Request::all() );
+  $slashCommand = new SlackSlashCommand( Request::all() );
   $slashCommand->exec();
 });

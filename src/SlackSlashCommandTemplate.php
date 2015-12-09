@@ -1,15 +1,15 @@
 <?php
 
-namespace Wzulfikar\SlackSlashCommand;
+namespace {$commandsNamespace};
 
 use Exception;
-use App\Libraries\SlackIncoming\SlashCommandInterface;
+use Wzulfikar\SlackSlashCommand\SlackSlashCommandInterface;
 
 /**
  * This class will handle Slack Slash Command `/{$commandName}`.
  * Generated using `php artisan make:slack_slash_command {$commandName}`
  */
-class {$className} implements SlashCommandInterface {
+class {$className} implements SlackSlashCommandInterface {
 
 	public $payload;
 

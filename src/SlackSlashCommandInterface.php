@@ -2,7 +2,7 @@
 
 namespace Wzulfikar\SlackSlashCommand;
 
-interface SlashCommandInterface {
+interface SlackSlashCommandInterface {
 	
 	/**
 	 * 

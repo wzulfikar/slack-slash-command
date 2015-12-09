@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Libraries\SlackIncoming\Commands;
+namespace Wzulfikar\SlackSlashCommand\Commands;
 
 use Exception;
 use App\Models\User;
 use Maknz\Slack\Facades\Slack;
-use App\Libraries\SlackIncoming\SlashCommandInterface;
+use Wzulfikar\SlackSlashCommand\SlackSlashCommandInterface;
 
 /**
  * e.g: 
  * /users [username/name/email] [command] [value_for_command]
  */
-class SlashUsers implements SlashCommandInterface {
+class SlashUsers implements SlackSlashCommandInterface {
 
 	public $text;
 	public $users;

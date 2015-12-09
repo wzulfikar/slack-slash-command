@@ -10,7 +10,7 @@ class SlackSlashCommand {
 	public $payload;
 
 	private $executableClass;
-	private $slashCommandInterfaceNamespace = 'App\Libraries\SlackIncoming\SlashCommandInterface';
+	private $slashCommandInterfaceNamespace = 'Wzulfikar\SlackSlashCommand\SlackSlashCommandInterface';
 
 	/**
 	 * see: https://api.slack.com/slash-commands
