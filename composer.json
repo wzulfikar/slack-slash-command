@@ -1,5 +1,5 @@
 {
-    "name": "willdone/slack-slash-command",
+    "name": "wzulfikar/slack-slash-command",
     "autoload": {
         "psr-4": {
             "Willdone\\SlackSlashCommand\\": "src/"
