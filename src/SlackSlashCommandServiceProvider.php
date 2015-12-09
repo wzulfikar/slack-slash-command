@@ -48,7 +48,10 @@ class SlackSlashCommandServiceProvider extends ServiceProvider
      */
     protected function registerGeneratorCommand()
     {
-        $this->commands('command.generator');
+        $this->app->singleton('command.make.slack-slash-command', function($app) {
+            return new GeneratorCommand();
+        });
+        $this->commands('command.make.slack-slash-command');
     }
 
     /**
@@ -58,9 +61,6 @@ class SlackSlashCommandServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return [
-
-            'command.make.generator'
-        ];
+        
     }
 }
